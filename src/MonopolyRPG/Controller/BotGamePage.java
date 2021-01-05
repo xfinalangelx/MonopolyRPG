@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class BotGamePage extends Game {
 
-    final String [] FIRSTNAME = {"Steven", "Halim", "Pretty"};
-    final String [] LASTNAME = {"Jack", "James", "King"};
+    final String [] FIRSTNAME = {"Happy", "Angry", "Sad"};
+    final String [] LASTNAME = {"Jack", "Queen", "King"};
     public BotGamePage() {
         //can determine wanna random mapping or not
         this.board = new Board(true);
