@@ -10,8 +10,9 @@ public abstract class Game {
     protected int player_num;
     protected Player[] players;;
     protected int remaining_player;
-    protected Board board;
     protected Dice dice;
+    protected Map map ;
+    protected Board board;
 
     //display all the commands that user should input
     public void displayCommands(){
@@ -22,10 +23,6 @@ public abstract class Game {
         System.out.println(Command.QUIT + ": Quit the game");
     }
 
-    public void renderMap(){
-        //can build the map here, putting all the tiles fitting into the board
-        System.out.println(Arrays.toString(this.board.getTiles()));
-    }
 
     public void roll(Player player){
         int dice_rolled = dice.roll();
@@ -79,6 +76,7 @@ public abstract class Game {
             int value = dice.roll();
             System.out.println(players[i] + " rolls " + value);
             priority[i] = value;
+            board.getTiles()[0].playerEnter(players[i]);
         }
 
         //bubble sort
@@ -95,8 +93,11 @@ public abstract class Game {
                 }
             }
         }
+        for(int i = 0; i  < players.length ; i ++){
+            players[i].setPlayer_index(i+1);
+            System.out.println("Player " + players[i].getPlayer_index() + ": " + players[i]);
+        }
 
-        System.out.println(Arrays.toString(players));
     }
 
     public abstract void inputPlayerName();
@@ -115,12 +116,12 @@ public abstract class Game {
         int previousLocation = player.getLocation();
         player.setLocation((player.getLocation() + steps) % Board.getNum_of_tiles());
         int currentLocation = player.getLocation();
-        System.out.println(player.getName() + " move from " + tiles[previousLocation] + "("+ previousLocation + ") to "
-                + tiles[currentLocation] + "(" + currentLocation + ")");
 
         //record in the tiles
         tiles[previousLocation].playerLeave(player);
         tiles[currentLocation].playerEnter(player);
+        map.renderMap();
+
 
         //passes a round
         if(currentLocation < previousLocation){

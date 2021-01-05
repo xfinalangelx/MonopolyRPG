@@ -12,6 +12,7 @@ public class BotGamePage extends Game {
     public BotGamePage() {
         //can determine wanna random mapping or not
         this.board = new Board(true);
+        this.map = new Map(this.board);
         this.dice = new Dice();
     }
 
@@ -23,7 +24,7 @@ public class BotGamePage extends Game {
         this.arrangePlayer();
         System.out.println("<<< Game Starts >>>");
 
-        renderMap();
+        map.renderMap();
         Scanner input = new Scanner(System.in);
 
         /*
@@ -54,6 +55,7 @@ public class BotGamePage extends Game {
                         return;
                     }
                 }else {
+                    map.renderMap();
                     //the player's round ends only when he/she rolls the dice
                     int command = -1;
                     while (command != Command.ROLL) {

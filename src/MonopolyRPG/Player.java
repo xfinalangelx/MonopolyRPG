@@ -16,6 +16,7 @@ public class Player extends Role implements Comparable<Player>{
     private int remainingEXP;
     private ItemBag itemBag;
     private WeaponBag weaponBag;
+    private int player_index;
 
     public Player(String name){
         this.respawn();
@@ -24,6 +25,7 @@ public class Player extends Role implements Comparable<Player>{
         this.itemBag = new ItemBag();
         this.weaponBag = new WeaponBag();
         weaponBag.put(this.weapon);
+        player_index = 0;
     }
 
     public void equip(Weapon weapon){
@@ -158,5 +160,11 @@ public class Player extends Role implements Comparable<Player>{
         return this.getExp() - o.getExp();
     }
 
+    public int getPlayer_index() {
+        return player_index;
+    }
 
+    public void setPlayer_index(int player_index) {
+        this.player_index = player_index;
+    }
 }

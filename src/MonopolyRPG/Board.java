@@ -83,9 +83,9 @@ public class Board {
 
     public int generateRandomPosition(){
         Random rnd = new Random();
-        int random_position = rnd.nextInt(31) + 1;
+        int random_position = rnd.nextInt(NUM_OF_TILES - 1) + 1;
         while(tiles[random_position] != null){
-            random_position = rnd.nextInt(31) + 1;
+            random_position = rnd.nextInt(NUM_OF_TILES - 1) + 1;
         }
         return random_position;
     }

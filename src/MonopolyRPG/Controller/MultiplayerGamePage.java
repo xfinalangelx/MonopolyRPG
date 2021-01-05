@@ -8,6 +8,7 @@ public class MultiplayerGamePage extends Game{
 
     public MultiplayerGamePage() {
         this.board = new Board(true);
+        this.map = new Map(this.board);
         this.dice = new Dice();
     }
 
@@ -19,7 +20,7 @@ public class MultiplayerGamePage extends Game{
         this.arrangePlayer();
         System.out.println("<<< Game Starts >>>");
 
-        renderMap();
+        map.renderMap();
         Scanner input = new Scanner(System.in);
 
         /*
@@ -39,6 +40,7 @@ public class MultiplayerGamePage extends Game{
                 //the player's round ends only when he/she rolls the dice
                 boolean rolled = false;
                 while(!rolled){
+                    map.renderMap();
                     System.out.println("Now is " + players[i] + "'s turn, enter your command");
                     this.displayCommands();
                     int command = input.nextInt();

@@ -19,7 +19,7 @@ public class Tile {
         this.type = type;
         switch(type){
             case START:
-                this.name = "START";
+                this.name = "<-START";
                 break;
             case SHOP:
                 this.name = "SHOP";
@@ -28,16 +28,16 @@ public class Tile {
                 this.name = "CHEST";
                 break;
             case EMPTY:
-                this.name = "EMPTY";
+                this.name = "";
                 break;
             case SINM:
-                this.name = "SINM";
+                this.name = "SIN-M";
                 break;
             case DUOM:
-                this.name = "DUOM";
+                this.name = "DUO-M";
                 break;
             case TRIM:
-                this.name = "TRIM";
+                this.name = "TRI-M";
                 break;
         }
     }
