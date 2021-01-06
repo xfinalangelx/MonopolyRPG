@@ -61,6 +61,7 @@ public class BotGamePage extends Game {
                     while (command != Command.ROLL) {
                         System.out.println("Now is " + players[i] + "'s turn, enter your command");
                         this.displayCommands();
+                        System.out.print("Command: ");
                         command = input.nextInt();
                         //if it returns false means the game ends
                         if(!executeCommand(players[i], command) ){
@@ -104,7 +105,7 @@ public class BotGamePage extends Game {
     public void inputPlayerName() {
 
         Scanner input =new Scanner(System.in);
-        System.out.println("Please enter you name in one line:");
+        System.out.print("Please enter your name in one line: ");
         players[0] = new Player(input.nextLine());
 
         //randomly generates the name for the bot

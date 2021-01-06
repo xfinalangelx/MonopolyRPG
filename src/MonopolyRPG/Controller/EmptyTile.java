@@ -13,7 +13,8 @@ public class EmptyTile {
         int command = -1;
         while(command != Command.TILE_QUIT) {
             System.out.println("Do you want to use item or equip equipment?");
-            System.out.println(Command.TILE_ITEM + " for item, "+Command.TILE_EQUIPMENT+" for equipment, "+Command.TILE_QUIT+" for quit");
+            System.out.print(Command.TILE_ITEM + " for item\n"+Command.TILE_EQUIPMENT+" for equipment\n"+Command.TILE_QUIT+" for quit\n");
+            System.out.print("Enter your command: ");
             if(player instanceof BotPlayer){
                 command = ((BotPlayer) player).selectEmptyTileCommand();
             }else {

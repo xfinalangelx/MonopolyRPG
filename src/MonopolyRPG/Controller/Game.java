@@ -103,7 +103,7 @@ public abstract class Game {
     public abstract void inputPlayerName();
 
     public void inputPlayerNumber() {
-        System.out.println("Enter number of players [2-4]");
+        System.out.print("Enter number of players [2-4]: ");
         Scanner input = new Scanner(System.in);
         this.player_num = input.nextInt();
         this.players = new Player[player_num];

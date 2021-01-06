@@ -11,7 +11,7 @@ public class BattleSystem {
     public static boolean selectActionPlayerBattle(Player attacker, Player defender){
 
         System.out.println(attacker + "'s turn, enter your command");
-        System.out.println(Command.ATTACK + " for attack, "+Command.ITEM+" for using item, ");
+        System.out.println(Command.ATTACK + " for attack\n"+Command.ITEM+" for using item\n");
         Scanner input = new Scanner(System.in);
         int command = -1;
         if(attacker instanceof BotPlayer){
@@ -33,13 +33,14 @@ public class BattleSystem {
     }
 
     public static boolean selectActionMonsterBattle(Player player, LinkedList<Monster> monsters, LinkedList<Monster> deadMonsters){
-        System.out.println(player + "'s turn, enter your command");
-        System.out.println(Command.ATTACK + " for attack, "+Command.ITEM+" for using item, "+Command.FLEE+" for flee");
+        System.out.println("\n" + player + "'s turn, enter your command");
+        System.out.println(Command.ATTACK + " for attack\n"+Command.ITEM+" for using item\n"+Command.FLEE+" for flee\n");
         Scanner input = new Scanner(System.in);
         int command = -1;
         if(player instanceof BotPlayer){
             command = ((BotPlayer) player).selectBattleCommand(false);
         }else{
+            System.out.print("Command: ");
             command = input.nextInt();
         }
 
@@ -58,6 +59,7 @@ public class BattleSystem {
                         for (int i = 0; i < monsters.size(); i++) {
                             System.out.println((i + 1) + " for " + monsters.get(i));
                         }
+                        System.out.print("Attack: ");
                         monster_index = input.nextInt() - 1;
                     }
                     attack(player , monsters.get(monster_index ));

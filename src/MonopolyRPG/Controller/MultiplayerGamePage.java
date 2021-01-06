@@ -43,6 +43,7 @@ public class MultiplayerGamePage extends Game{
                     map.renderMap();
                     System.out.println("Now is " + players[i] + "'s turn, enter your command");
                     this.displayCommands();
+                    System.out.print("Command: ");
                     int command = input.nextInt();
                     switch (command) {
                         case Command.ROLL:
@@ -66,7 +67,7 @@ public class MultiplayerGamePage extends Game{
                         case Command.QUIT:
                             boolean all_agree =true;
                             for(int j = 0 ; j < i ; j++){
-                                System.out.println(players[j] + " agress to end the game?[Y/N]");
+                                System.out.print(players[j] + " agrees to end the game?[Y/N]: ");
                                 char agree = input.next().charAt(0);
                                 if(agree != 'Y'){
                                     all_agree = false;
@@ -75,7 +76,7 @@ public class MultiplayerGamePage extends Game{
                             }
 
                             for(int j = i + 1 ; j < players.length ; j ++){
-                                System.out.println(players[j] + " agress to end the game?[Y/N]");
+                                System.out.print(players[j] + " agrees to end the game?[Y/N]: ");
                                 char agree = input.next().charAt(0);
                                 if(agree != 'Y'){
                                     all_agree = false;
@@ -99,7 +100,7 @@ public class MultiplayerGamePage extends Game{
 
         Scanner input =new Scanner(System.in);
         for(int i = 0 ; i < player_num ; i ++){
-            System.out.println("Player " + (i+1) + ", please enter your name in one line:");
+            System.out.print("Player " + (i+1) + ", please enter your name in one line: ");
             players[i] = new Player(input.nextLine());
         }
     }
