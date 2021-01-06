@@ -26,14 +26,15 @@ public class Shop {
         int command = -1 ;
         while(command != Command.EXIT){
             System.out.println("Your money: " + player.getGold());
-            System.out.println("Enter your command: ");
             System.out.println(Command.BUY + ": Buy");
             System.out.println(Command.SELL + ": Sell");
             System.out.println(Command.EXIT + ": Exit");
+            System.out.print("Enter your command: ");
             if(player instanceof BotPlayer){
                 command = ((BotPlayer) player).selectShopCommand();
             }else {
                 command = input.nextInt();
+                System.out.println();
             }
             switch (command){
                 case Command.BUY:
@@ -59,16 +60,16 @@ public class Shop {
             amount = ((BotPlayer) player).selectAmountToBuy(item);
         }else {
             Scanner input = new Scanner(System.in);
-            System.out.println("Which items you want to buy?");
+            System.out.print("Which items you want to buy: ");
             int itemID = input.nextInt();
-            System.out.println("How many you want to buy?");
+            System.out.print("How many you want to buy: ");
             amount = input.nextInt();
             item = getItemByID(itemID);
         }
 
         int price = items.get(item) * amount;
         if (player.getGold() < price) {
-            System.out.println("You don't have enough amount of money");
+            System.out.println("You don't have enough gold");
         } else {
             buyItem(player, item, amount, price);
         }
@@ -79,15 +80,15 @@ public class Shop {
         System.out.println("Purchased successful");
         player.obtainItem(item,amount);
         player.spendGold(price);
-        System.out.println("It costs " + price + ", your remaining money: " + player.getGold());
+        System.out.println("It costs " + price + ", your remaining money: " + player.getGold() + "\n");
     }
 
     public void promptSell(Player player){
 
         Scanner input = new Scanner(System.in);
-        System.out.println("Which items you want to sell?");
+        System.out.print("Which items you want to sell: ");
         int itemID = input.nextInt();
-        System.out.println("How many you want to sell?");
+        System.out.print("How many you want to sell: ");
         int amount = input.nextInt();
         ItemBag bag = player.getItemBag();
         Item item = bag.get(itemID);
@@ -104,14 +105,14 @@ public class Shop {
         //the price of the items sold will be half of the price to buy it
         int price = (items.get(item) * amount) /2;
 
-        //if you want to, can put selling succesful eh background music here
-        System.out.println("Sold successful");
+        //if you want to, can put selling successful eh background music here
+        System.out.println("Successful deal");
         player.sellItem(item,amount, price);
-        System.out.println("You earns " + price + ", your remaining money: " + player.getGold());
+        System.out.println("You earned " + price + ", your remaining money: " + player.getGold() + "\n");
     }
 
     public void leave(){
-        System.out.println("You leave the shop");
+        System.out.println("You left the shop");
     }
 
     public void display(){

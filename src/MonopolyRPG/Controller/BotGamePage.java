@@ -59,10 +59,11 @@ public class BotGamePage extends Game {
                     //the player's round ends only when he/she rolls the dice
                     int command = -1;
                     while (command != Command.ROLL) {
-                        System.out.println("Now is " + players[i] + "'s turn, enter your command");
+                        System.out.println("\nNow is " + players[i] + "'s turn, enter your command");
                         this.displayCommands();
                         System.out.print("Command: ");
                         command = input.nextInt();
+                        System.out.println();
                         //if it returns false means the game ends
                         if(!executeCommand(players[i], command) ){
                             return;
@@ -97,6 +98,7 @@ public class BotGamePage extends Game {
                 break;
             case Command.QUIT:
                 this.end();
+                System.exit(0);
                 return false;
         }
         return true;

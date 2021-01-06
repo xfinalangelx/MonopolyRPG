@@ -37,7 +37,7 @@ public class Chest {
     public void open(Player player){
         //can put the animation of opening chest here
         System.out.println(player + " opened a chest");
-        System.out.println("The chest contains");
+        System.out.print("The chest contains ");
         for(Weapon weapon : weapons){
             System.out.println(weapon);
             player.obtainWeapon(weapon);

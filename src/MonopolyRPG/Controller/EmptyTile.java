@@ -24,11 +24,13 @@ public class EmptyTile {
                 ItemBag bag = player.getItemBag();
                 bag.display();
                 bag.promptUser(player, false);
+                System.out.println();
 
             } else if (command == Command.TILE_EQUIPMENT) {
                 WeaponBag bag = player.getWeaponBag();
                 bag.display();
-                bag.promptUser(player);
+                bag.promptUser(player,true);
+                System.out.println();
             }
         }
 

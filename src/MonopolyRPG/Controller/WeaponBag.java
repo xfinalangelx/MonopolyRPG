@@ -35,19 +35,21 @@ public class WeaponBag extends Bag {
         //display the weapon bag
         int count = 1;
         for(Weapon weapon : weapons){
-            System.out.println("Weapon " + count + ": " + weapon);
+            System.out.println("\nWeapon " + count + ": " + weapon);
             count ++;
         }
     }
 
-    public void promptUser(Player player){
+    public boolean promptUser(Player player, Boolean active){
         int weaponID = -1;
         if(player instanceof BotPlayer){
             weaponID = ((BotPlayer) player).selectWeaponToUse();
         }else {
             Scanner input = new Scanner(System.in);
-            System.out.println("Which equipment you want to equip?");
+            System.out.print("Which equipment you want to equip(-1 to go back): ");
             weaponID = input.nextInt() - 1;
+            System.out.println();
+            if(weaponID == -2){return false;}
         }
 
         Weapon weapon = this.get(weaponID);
@@ -56,7 +58,9 @@ public class WeaponBag extends Bag {
             player.unequip();
             System.out.println("Player equip " + weapon);
             player.equip(weapon);
+            return false;
         }
+        return true;
     }
 
     public int contains(Weapon weaponToSearch){

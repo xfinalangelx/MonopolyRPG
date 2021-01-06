@@ -32,8 +32,8 @@ import java.util.HashMap;
 
      @Override
     public String toString() {
-        return "Name=" + description +
-                "\nAttributes= " + status +
-                "\nEquipped= " + isEquipped;
+        return "\nName: " + description +
+                "\nAttributes: " + status +
+                "\nEquipped status: " + isEquipped + "\n";
     }
 }

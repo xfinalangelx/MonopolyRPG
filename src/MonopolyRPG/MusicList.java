@@ -14,7 +14,7 @@ public class MusicList {
         currentMusic = 0;
 
         //adds the predefined music list
-        addMusic(new Music("retro2","retro2.mp3"));
+        addMusic(new Music("retro1","retro1.mp3"));
         addMusic(new Music("retro2","retro2.mp3"));
 
     }

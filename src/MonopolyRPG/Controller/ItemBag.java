@@ -82,8 +82,10 @@ public class ItemBag extends Bag {
             item = ((BotPlayer) player).selectItemToUse(!battling);
         }else {
             Scanner input = new Scanner(System.in);
-            System.out.println("Which item you want to use?");
+            System.out.print("Which item you want to use (-1 to cancel): ");
             int itemID = input.nextInt();
+            System.out.println();
+            if(itemID == -1){return false;}
             item = this.get(itemID);
         }
 

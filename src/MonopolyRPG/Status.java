@@ -98,14 +98,13 @@ public class Status {
 
     @Override
     public String toString() {
-        return "Status{" +
-                "currenthp=" + currenthp +
-                ", maxhp=" + maxhp +
-                ", strength=" + strength +
-                ", defence=" + defence +
-                ", agility=" + agility +
-                ", accuracy=" + accuracy +
-                ", evasion=" + evasion +
-                '}';
+        return
+                "\nCurrent Hp=" + currenthp + "\n" +
+                "Max Hp= " + maxhp + "\n" +
+                "Strength= " + strength + "\n" +
+                "Defence= " + defence + "\n" +
+                "Agility= " + agility + "\n" +
+                "Accuracy= " + accuracy + "\n" +
+                "Evasion= " + evasion ;
     }
 }
